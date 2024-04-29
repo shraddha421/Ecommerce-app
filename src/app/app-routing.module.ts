@@ -6,11 +6,10 @@ import { RegistrationFormComponent } from './components/registration-form/regist
 
 const routes: Routes = [
 //Rotes for login, registration form and products page when path matched exactly, else route to login page  
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'register', component: RegistrationFormComponent},
-  {path: 'products', loadChildren: () => import('./components/products/products.module').then(m => m.ProductsModule)},
-  {path: '**', redirectTo: ''}
-
+  { path: 'products', loadChildren: () => import('./Features/products/products.module').then(m => m.ProductsModule) },
+  {path: '', redirectTo: '/login', pathMatch: 'full'}, 
 ];
 
 @NgModule({

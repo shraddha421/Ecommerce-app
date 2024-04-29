@@ -1,0 +1,29 @@
+<div class="container">
+    <h1>View Cart</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>{{ item.title }}</td>
+          <td>{{ item.quantity }}</td>
+          <td>{{ item.totalPrice }} ( {{item.quantity}} * {{item.price}} )</td>
+        </tr>
+      </tbody>
+    </table>
+    <h4> Total Amount : {{billAmount}}</h4><br><br>
+    <h6>Enter Delivery Address</h6>
+    <form (submit)="submitAddress()">
+      <div class="mb-3">
+        <label for="address" class="form-label">Address</label>
+        <textarea class="form-control" id="address" name="address" [(ngModel)]="deliveryAddress"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit Address</button>
+    </form>
+    <a class="btn btn-success mt-3">Checkout</a>
+  </div>
